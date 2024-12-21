@@ -7,3 +7,16 @@ alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
 alias edit='subl'                           # edit:         Opens any file in sublime editor
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
+
+alias git-config-ufpe="echo 'Set git configurations for gitlab.UFPE.br' && \
+git config user.name 'Marlos Ribeiro' && \
+git config user.email 'marlos@ufpe.br' && \
+git config commit.gpgsign true && \
+git config user.signingkey 4DB485592170FAA9"
+
+
+alias git-config-github="echo 'Set git configurations for github.com' && \
+git config user.name 'Marlos Ribeiro' && \
+git config user.email '550561+mgrb@users.noreply.github.com' && \
+git config commit.gpgsign true && \
+git config user.signingkey 98AE061D821B7748"
