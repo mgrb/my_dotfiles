@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Arquivos e pastas a serem copiados
-FILES_TO_COPY=("$HOME/.zshrc" "$HOME/.zsh")
+FILES_TO_COPY=("$HOME/.zshrc" "$HOME/.zsh" "$HOME/.config/starship.toml")
 
 # Diretório de destino (o diretório corrente)
 DEST_DIR=$(pwd)
