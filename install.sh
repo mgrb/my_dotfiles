@@ -20,9 +20,9 @@ mkdir -p "$USER_HOME/.zsh/plugins"
 
 # 5. Clonar ou atualizar os repositórios
 repos=(
-  "https://github.com/z-shell/F-Sy-H.git ~/.zsh/plugins/f-sy-h"
-  "https://github.com/unixorn/fzf-zsh-plugin.git ~/.zsh/plugins/fzf-zsh-plugin"
-  "https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/plugins/zsh-autosuggestions"
+  "https://github.com/z-shell/F-Sy-H.git $USER_HOME/.zsh/plugins/f-sy-h"
+  "https://github.com/unixorn/fzf-zsh-plugin.git $USER_HOME/.zsh/plugins/fzf-zsh-plugin"
+  "https://github.com/zsh-users/zsh-autosuggestions.git $USER_HOME/.zsh/plugins/zsh-autosuggestions"
 )
 
 for repo in "${repos[@]}"; do
