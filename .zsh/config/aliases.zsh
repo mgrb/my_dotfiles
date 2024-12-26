@@ -29,7 +29,3 @@ git config --global init.defaultBranch main && \
 git config --global color.ui auto && \
 git config --global core.editor 'subl' && \
 git config --global pull.ff false"
-
-
-
-
