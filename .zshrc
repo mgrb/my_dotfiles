@@ -29,4 +29,6 @@ export GPG_TTY=$(tty)
 
 ### ---- Load Starship ----------------------------------------------------
 eval "$(starship init zsh)"
-# . "$HOME/.local/bin/env"
+
+### ---- Load UV ----------------------------------------------------
+. "$HOME/.local/bin/env"
