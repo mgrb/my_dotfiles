@@ -15,3 +15,5 @@ for FILE in "${FILES_TO_COPY[@]}"; do
         echo "Aviso: $FILE não encontrado."
     fi
 done
+
+mv starship.toml .config/
