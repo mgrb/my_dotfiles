@@ -15,7 +15,7 @@ git config commit.gpgsign true && \
 git config user.signingkey 4DB485592170FAA9"
 
 
-alias git-config-github="echo 'Set git configurations for github.com' && \
+alias git-config-github="echo 'Set git configurations for GitHub.com' && \
 git config user.name 'Marlos Ribeiro' && \
 git config user.email '550561+mgrb@users.noreply.github.com' && \
 git config commit.gpgsign true && \
