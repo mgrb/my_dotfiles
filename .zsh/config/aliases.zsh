@@ -20,3 +20,16 @@ git config user.name 'Marlos Ribeiro' && \
 git config user.email '550561+mgrb@users.noreply.github.com' && \
 git config commit.gpgsign true && \
 git config user.signingkey 98AE061D821B7748"
+
+
+alias git-config-global="echo 'Set git configurations for GLOBAL' && \
+git config --global user.name 'Marlos Ribeiro' && \
+git config --global commit.gpgsign true && \
+git config --global init.defaultBranch main && \
+git config --global color.ui auto && \
+git config --global core.editor 'subl' && \
+git config --global pull.ff false"
+
+
+
+

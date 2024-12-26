@@ -29,4 +29,4 @@ export GPG_TTY=$(tty)
 
 ### ---- Load Starship ----------------------------------------------------
 eval "$(starship init zsh)"
-. "$HOME/.local/bin/env"
+# . "$HOME/.local/bin/env"
