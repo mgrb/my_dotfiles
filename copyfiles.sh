@@ -16,4 +16,20 @@ for FILE in "${FILES_TO_COPY[@]}"; do
     fi
 done
 
+# Deleta todas as subpastas em .zsh/plugins
+PLUGIN_DIR="$DEST_DIR/.zsh/plugins"
+
+if [ -d "$PLUGIN_DIR" ]; then
+    find "$PLUGIN_DIR" -mindepth 1 -type d -exec rm -rf {} +
+    echo "Todas as subpastas em $PLUGIN_DIR foram deletadas."
+else
+    echo "Aviso: O diretório $PLUGIN_DIR não foi encontrado."
+fi
+
+# Deletar histórico
+echo "Arquivo de histórico deletado."
+rm $DEST_DIR/.zsh/.zsh_history
+
+# Movendo starship config
+echo "Movendo starship config."
 mv starship.toml .config/
