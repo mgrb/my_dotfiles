@@ -12,14 +12,14 @@ alias git-config-ufpe="echo 'Set git configurations for gitlab.UFPE.br' && \
 git config user.name 'Marlos Ribeiro' && \
 git config user.email 'marlos@ufpe.br' && \
 git config commit.gpgsign true && \
-git config user.signingkey 4DB485592170FAA9"
+git config user.signingkey <get-key>"
 
 
 alias git-config-github="echo 'Set git configurations for GitHub.com' && \
 git config user.name 'Marlos Ribeiro' && \
 git config user.email '550561+mgrb@users.noreply.github.com' && \
 git config commit.gpgsign true && \
-git config user.signingkey 98AE061D821B7748"
+git config user.signingkey <get-key>"
 
 
 alias git-config-global="echo 'Set git configurations for GLOBAL' && \
@@ -28,4 +28,4 @@ git config --global commit.gpgsign true && \
 git config --global init.defaultBranch main && \
 git config --global color.ui auto && \
 git config --global core.editor 'subl' && \
-git config --global pull.ff false"
+git config --global pull.ff only"
