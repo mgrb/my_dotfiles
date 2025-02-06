@@ -4,11 +4,22 @@
 USER_HOME="$HOME"
 
 # INSTALAÇÕES ESSENCIAIS -------------------------------------------------------
+# - GIT
 # - ZSH
 # - EZA
+# - SDKMAN
 # - FNM
 # - UV
 # - Starship
+
+# Instalar Git
+if ! command -v git &> /dev/null; then
+    echo "Instalando Git..."
+    sudo apt update && sudo apt install -y git
+    echo "Git instalado."
+else
+    echo "Git já está instalado."
+fi
 
 # Instalar ZSH e definir como shell padrão
 if ! command -v zsh &> /dev/null; then
@@ -27,6 +38,15 @@ if ! command -v eza &> /dev/null; then
     echo "EZA instalado."
 else
     echo "EZA já está instalado."
+fi
+
+# Instalar SDKMAN
+if [ ! -d "$USER_HOME/.sdkman" ]; then
+    echo "Instalando SDKMAN..."
+    curl -s "https://get.sdkman.io" | bash
+    echo "SDKMAN instalado."
+else
+    echo "SDKMAN já está instalado."
 fi
 
 # Instalar FNM
@@ -94,4 +114,39 @@ for repo in "${repos[@]}"; do
   fi
 done
 
+# DOWNLOAD E INSTALAÇÃO DE FONTES -------------------------------------------------------
+FONTS_DIR="/usr/local/share/fonts"
+if [ ! -d "$FONTS_DIR" ]; then
+    echo "Criando diretório de fontes em $FONTS_DIR..."
+    sudo mkdir -p "$FONTS_DIR"
+else
+    echo "Diretório de fontes já existe em $FONTS_DIR."
+fi
+
+FONT_URLS=(
+    "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip"
+    "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip"
+    "https://github.com/kencrocken/FiraCodeiScript/archive/refs/heads/master.zip"
+    "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Meslo.zip"
+)
+
+for url in "${FONT_URLS[@]}"; do
+    filename=$(basename "$url")
+    temp_zip="/tmp/$filename"
+    
+    echo "Baixando $url..."
+    curl -L "$url" -o "$temp_zip"
+    
+    if [[ "$filename" == *.zip ]]; then
+        echo "Descompactando $filename em $FONTS_DIR..."
+        sudo unzip -o "$temp_zip" -d "$FONTS_DIR"
+        rm "$temp_zip"
+    fi
+done
+
+# Atualizar cache de fontes
+fc-cache -f -v
+
+echo "==============================="
 echo "Configuração finalizada."
+echo "==============================="
