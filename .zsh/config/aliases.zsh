@@ -5,8 +5,10 @@ alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
-alias edit='subl'                           # edit:         Opens any file in sublime editor
-mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
+alias edit='subl'                           # edit: Opens any file in sublime editor
+mcd () { mkdir -p "$1" && cd "$1"; }        # mcd: Makes new Dir and jumps inside
+alias tree='eza --tree -l --icons --level=${1:-2}' # comando tree utilizando o eza com ícones
+
 
 alias git-config-ufpe="echo 'Set git configurations for gitlab.UFPE.br' && \
 git config user.name 'Marlos Ribeiro' && \
