@@ -3,6 +3,62 @@
 # Definir a pasta home do usuario
 USER_HOME="$HOME"
 
+# INSTALAÇÕES ESSENCIAIS -------------------------------------------------------
+# - ZSH
+# - EZA
+# - FNM
+# - UV
+# - Starship
+
+# Instalar ZSH e definir como shell padrão
+if ! command -v zsh &> /dev/null; then
+    echo "Instalando ZSH..."
+    sudo apt update && sudo apt install -y zsh
+    chsh -s $(which zsh)
+    echo "ZSH instalado e definido como padrão."
+else
+    echo "ZSH já está instalado."
+fi
+
+# Instalar EZA
+if ! command -v eza &> /dev/null; then
+    echo "Instalando EZA..."
+    sudo apt install -y eza
+    echo "EZA instalado."
+else
+    echo "EZA já está instalado."
+fi
+
+# Instalar FNM
+if ! command -v fnm &> /dev/null; then
+    echo "Instalando FNM..."
+    curl -fsSL https://fnm.vercel.app/install | bash
+    echo "FNM instalado."
+else
+    echo "FNM já está instalado."
+fi
+
+# Instalar UV
+if ! command -v uv &> /dev/null; then
+    echo "Instalando UV..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    echo "UV instalado."
+else
+    echo "UV já está instalado."
+fi
+
+# Instalar Starship
+if ! command -v starship &> /dev/null; then
+    echo "Instalando Starship..."
+    curl -sS https://starship.rs/install.sh | sh
+    # echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+    echo "Starship instalado e configurado."
+else
+    echo "Starship já está instalado."
+fi
+
+# CONFIGURAÇÕES -------------------------------------------------------
+
 # 1. Copiar o arquivo .zshrc para a home
 cp .zshrc "$USER_HOME/.zshrc"
 echo ".zshrc copiado para $USER_HOME"
