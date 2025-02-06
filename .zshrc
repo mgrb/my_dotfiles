@@ -1,8 +1,3 @@
-### ---- ASDF -------------------------------------------------------------
-. "$HOME/.asdf/asdf.sh"
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
-
 ### ---- ZSH HOME ---------------------------------------------------------
 export ZSH=$HOME/.zsh
 
@@ -30,5 +25,12 @@ export GPG_TTY=$(tty)
 ### ---- Load Starship ----------------------------------------------------
 eval "$(starship init zsh)"
 
-### ---- Load UV ----------------------------------------------------
+### ---- Load UV ----------------------------------------------------------
 . "$HOME/.local/bin/env"
+
+### ---- FNM - Node Version Manager----------------------------------------
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$HOME/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
