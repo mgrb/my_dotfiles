@@ -104,7 +104,10 @@ if ! command -v docker &> /dev/null; then
     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     
     echo "Linux post-installation for Docker Engine"
-    sudo groupadd docker
+    if ! getent group docker > /dev/null; then
+        echo "Criando grupo docker..."
+        sudo groupadd docker
+    fi
     sudo usermod -aG docker $USER
     newgrp docker    
 else
