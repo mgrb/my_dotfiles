@@ -11,6 +11,8 @@ USER_HOME="$HOME"
 # - FNM
 # - UV
 # - Starship
+# - Docker Engine
+# - PIPX
 
 # Instalar Git
 if ! command -v git &> /dev/null; then
@@ -76,6 +78,51 @@ if ! command -v starship &> /dev/null; then
 else
     echo "Starship já está instalado."
 fi
+
+# Instalar Docker
+if ! command -v docker &> /dev/null; then
+    echo "Instalando Docker Engine..."
+    echo "uninstall all conflicting packages with Docker Engine"
+    for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+    
+    # Add Docker's official GPG key:
+    echo "Set up Docker's apt repository"
+    sudo apt-get update
+    sudo apt-get install ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    # Add the repository to Apt sources:
+    echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+      $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
+    
+    echo "Install the Docker packages"
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    
+    echo "Linux post-installation for Docker Engine"
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker    
+else
+    echo "Docker já está instalado."
+fi
+
+# Instalar PIPX
+if ! command -v pipx &> /dev/null; then
+    echo "Instalando PIPX..."
+    sudo apt update
+    sudo apt install pipx
+    pipx ensurepath
+    sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
+else
+    echo "PIPX já está instalado."
+fi
+
+
 
 # CONFIGURAÇÕES -------------------------------------------------------
 
