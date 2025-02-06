@@ -15,6 +15,7 @@ export WORDCHARS=${WORDCHARS//[\/]} # remove / from wordchars so that / is a sep
 ### ---- Source other configs ---------------------------------------------
 [[ -f $ZSH/config/history.zsh ]] && source $ZSH/config/history.zsh
 [[ -f $ZSH/config/aliases.zsh ]] && source $ZSH/config/aliases.zsh
+[[ -f $ZSH/config/auto_activate_venv.zsh ]] && source $ZSH/config/auto_activate_venv.zsh
 
 ### ---- Source plugins ---------------------------------------------------
 [[ -f $ZSH/plugins/plugins.zsh ]] && source $ZSH/plugins/plugins.zsh
