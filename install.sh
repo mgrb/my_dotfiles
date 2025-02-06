@@ -11,8 +11,10 @@ USER_HOME="$HOME"
 # - FNM
 # - UV
 # - Starship
+# - Nala
 # - Docker Engine
 # - PIPX
+# - Sublime Text
 
 # Instalar Git
 if ! command -v git &> /dev/null; then
@@ -79,6 +81,15 @@ else
     echo "Starship já está instalado."
 fi
 
+# Instalar Nala
+if ! command -v nala &> /dev/null; then
+    echo "Instalando Nala..."
+    sudo apt install nala
+    echo "Nala instalado e configurado."
+else
+    echo "Nala já está instalado."
+fi
+
 # Instalar Docker
 if ! command -v docker &> /dev/null; then
     echo "Instalando Docker Engine..."
@@ -125,6 +136,15 @@ else
     echo "PIPX já está instalado."
 fi
 
+# Instalar Sublime Text 
+if ! command -v subl &> /dev/null; then
+    wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
+    echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+    sudo apt-get update
+    sudo apt-get install sublime-text
+else
+    echo "Sublime Text já está instalado."
+fi
 
 
 # CONFIGURAÇÕES -------------------------------------------------------
