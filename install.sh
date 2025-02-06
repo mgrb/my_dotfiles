@@ -84,7 +84,7 @@ fi
 # Instalar Nala
 if ! command -v nala &> /dev/null; then
     echo "Instalando Nala..."
-    sudo apt install nala
+    sudo apt install -y nala
     echo "Nala instalado e configurado."
 else
     echo "Nala já está instalado."
@@ -94,12 +94,12 @@ fi
 if ! command -v docker &> /dev/null; then
     echo "Instalando Docker Engine..."
     echo "uninstall all conflicting packages with Docker Engine"
-    for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+    for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove -y $pkg; done
     
     # Add Docker's official GPG key:
     echo "Set up Docker's apt repository"
     sudo apt-get update
-    sudo apt-get install ca-certificates curl
+    sudo apt-get install -y ca-certificates curl
     sudo install -m 0755 -d /etc/apt/keyrings
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
     sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -112,7 +112,7 @@ if ! command -v docker &> /dev/null; then
     sudo apt-get update
     
     echo "Install the Docker packages"
-    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     
     echo "Linux post-installation for Docker Engine"
     if ! getent group docker > /dev/null; then
@@ -129,7 +129,7 @@ fi
 if ! command -v pipx &> /dev/null; then
     echo "Instalando PIPX..."
     sudo apt update
-    sudo apt install pipx
+    sudo apt install -y pipx
     pipx ensurepath
     sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
 else
@@ -141,7 +141,7 @@ if ! command -v subl &> /dev/null; then
     wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
     echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
     sudo apt-get update
-    sudo apt-get install sublime-text
+    sudo apt-get install -y sublime-text
 else
     echo "Sublime Text já está instalado."
 fi
