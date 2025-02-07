@@ -12,6 +12,7 @@ USER_HOME="$HOME"
 # - UV
 # - Starship
 # - Nala
+# - Flameshot
 # - Docker Engine
 # - PIPX
 # - Sublime Text
@@ -88,6 +89,15 @@ if ! command -v nala &> /dev/null; then
     echo "Nala instalado e configurado."
 else
     echo "Nala já está instalado."
+fi
+
+# Instalar Flameshot
+if ! command -v flameshot &> /dev/null; then
+    echo "Instalando flameshot..."
+    sudo apt install -y flameshot
+    echo "Flameshot instalado e configurado."
+else
+    echo "Flameshot já está instalado."
 fi
 
 # Instalar Docker
