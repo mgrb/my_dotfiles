@@ -13,7 +13,7 @@ The setup script (install.sh) installs and configures the following essential to
 - [**EZA**](https://eza.rocks/) - Modern replacement for ls
 - [**SDKMAN**](https://sdkman.io/) - Java SDK manager
 - [**FNM**](https://github.com/Schniz/fnm) - Fast Node.js version manager
-- [**UV**](https://docs.astral.sh/uv/) - Dependency management tool
+- [**UV**](https://docs.astral.sh/uv/) - Python dependency management tool
 - [**Starship**](https://starship.rs/) - Customizable shell prompt
 - [**Nala**](https://gitlab.com/volian/nala) - Improved package manager frontend for apt
 - [**Flameshot**](https://flameshot.org/) - Powerful, yet simple to use screenshot software.
