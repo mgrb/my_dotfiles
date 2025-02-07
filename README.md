@@ -16,6 +16,8 @@ The setup script (install.sh) installs and configures the following essential to
 - [**UV**](https://docs.astral.sh/uv/) - Dependency management tool
 - [**Starship**](https://starship.rs/) - Customizable shell prompt
 - [**Nala**](https://gitlab.com/volian/nala) - Improved package manager frontend for apt
+- [**Flameshot**](https://flameshot.org/) - Powerful, yet simple to use screenshot software.
+- [**Pomodoro**](https://gnomepomodoro.org/) - A Pomodoro timer for GNOME
 - [**Docker Engine**](https://docs.docker.com/engine/install/ubuntu/) - Containerization platform
 - [**PIPX**](https://github.com/pypa/pipx) - Python package installer
 - [**Sublime Text**](https://www.sublimetext.com/) - Lightweight code editor
@@ -105,10 +107,11 @@ I use tehe following settings in my `Preferences.sublime-settings` file:
 	[
 		"Vintage",
 	],
+	"theme": "Default Dark.sublime-theme",
 	"color_scheme": "Packages/Colorsublime - Themes/GooeyPastel.tmTheme",
 	"font_face": "JetBrainsMono Nerd Font",
 	"font_options": ["liga"],
-	"font_size": 13,
+	"font_size": 11,
 	"rulers": [80, 120],
 	"highlight_line": true,
 	"caret_style": "phase",
