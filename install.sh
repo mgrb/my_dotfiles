@@ -13,6 +13,7 @@ USER_HOME="$HOME"
 # - Starship
 # - Nala
 # - Flameshot
+# - Pomodoro
 # - Docker Engine
 # - PIPX
 # - Sublime Text
@@ -98,6 +99,15 @@ if ! command -v flameshot &> /dev/null; then
     echo "Flameshot instalado e configurado."
 else
     echo "Flameshot já está instalado."
+fi
+
+# Instalar Pomodoro
+if ! command -v gnome-pomodoro &> /dev/null; then
+    echo "Instalando Pomodoro..."
+    sudo apt install -y gnome-shell-pomodoro
+    echo "Pomodoro instalado e configurado."
+else
+    echo "Pomodoro já está instalado."
 fi
 
 # Instalar Docker
