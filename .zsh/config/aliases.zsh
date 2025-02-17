@@ -11,7 +11,8 @@ alias tree='eza --tree --group-directories-first -l --icons --level=${1:-2}' # c
 alias bat="batcat --paging=never --theme="Dracula" --italic-text=always"           # bat: Show content of a file with syntax highlighting
 
 alias git-config-global="echo 'Set git configurations for GLOBAL' && \
-git config --global user.name '<git-user-name>' && \
+git config --global user.name 'Marlos Ribeiro' && \
+git config user.email 'marlos@null.net' && \
 git config --global commit.gpgsign true && \
 git config --global init.defaultBranch main && \
 git config --global color.ui auto && \
@@ -19,7 +20,5 @@ git config --global core.editor 'subl' && \
 git config --global pull.ff only"
 
 alias git-config-github="echo 'Set git configurations for GitHub.com' && \
-git config user.name '<git-user-name>' && \
-git config user.email '<git-user-email>' && \
 git config commit.gpgsign true && \
 git config user.signingkey <get-key>"
