@@ -14,7 +14,7 @@ config.enable_tab_bar = false
 config.window_decorations = "NONE"
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Nord (Gogh)'
+config.color_scheme = 'SeaShells'
 config.window_background_opacity = 0.9
 
 -- and finally, return the configuration to wezterm
