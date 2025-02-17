@@ -7,7 +7,7 @@ alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias cd="z" # cd() { builtin cd "$@"; ll; }     # Always list directory contents upon 'cd'
 alias edit='subl'                           # edit: Opens any file in sublime editor
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd: Makes new Dir and jumps inside
-alias tree='eza --tree -l --icons --level=${1:-2}' # comando tree utilizando o eza com ícones
+alias tree='eza --tree --group-directories-first -l --icons --level=${1:-2}' # comando tree utilizando o eza com ícones
 alias bat="batcat --paging=never --theme="Dracula" --italic-text=always"           # bat: Show content of a file with syntax highlighting
 
 alias git-config-global="echo 'Set git configurations for GLOBAL' && \
