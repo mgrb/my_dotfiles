@@ -12,7 +12,7 @@ alias bat="batcat --paging=never --theme="Dracula" --italic-text=always"        
 
 alias git-config-global="echo 'Set git configurations for GLOBAL' && \
 git config --global user.name 'Marlos Ribeiro' && \
-git config user.email 'marlos@null.net' && \
+git config --global user.email 'marlos@null.net' && \
 git config --global commit.gpgsign true && \
 git config --global init.defaultBranch main && \
 git config --global color.ui auto && \
@@ -20,5 +20,5 @@ git config --global core.editor 'subl' && \
 git config --global pull.ff only"
 
 alias git-config-github="echo 'Set git configurations for GitHub.com' && \
-git config commit.gpgsign true && \
+git-config-global && \
 git config user.signingkey <get-key>"
