@@ -7,7 +7,8 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 config.font = wezterm.font("MesloLGS Nerd Font")
-config.font_size = 11
+config.font_size = 10
+config.line_height = 1.1
 
 -- disable tab & Window boards
 config.enable_tab_bar = false
