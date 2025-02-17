@@ -21,6 +21,9 @@ The setup script (install.sh) installs and configures the following essential to
 - [**Docker Engine**](https://docs.docker.com/engine/install/ubuntu/) - Containerization platform
 - [**PIPX**](https://github.com/pypa/pipx) - Python package installer
 - [**Sublime Text**](https://www.sublimetext.com/) - Lightweight code editor
+- [**Wezterm**](https://wezfurlong.org) - A GPU-accelerated terminal emulator
+- [**Zoxide**](https://crates.io/crates/zoxide) - A faster way to navigate your filesystem
+- [**Bat**](https://github.com/sharkdp/bat) - A cat clone with wings
 
 ## Installation 📥🛠️📌
 

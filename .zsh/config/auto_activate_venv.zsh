@@ -13,6 +13,7 @@ auto_activate_venv() {
 
 chpwd() {
     auto_activate_venv
+    ls
 }
 
 auto_activate_venv  # Para ativar quando abrir o terminal no diretório

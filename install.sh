@@ -17,6 +17,10 @@ USER_HOME="$HOME"
 # - Docker Engine
 # - PIPX
 # - Sublime Text
+# - Wezterm
+# - Zoxide
+# - Bat
+# - LazyDocker
 
 # Instalar Git
 if ! command -v git &> /dev/null; then
@@ -163,6 +167,44 @@ else
     echo "Sublime Text já está instalado."
 fi
 
+# instalar Wezterm
+if ! command -v wezterm &> /dev/null; then
+    echo "Instalando Wezterm..."
+    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
+    echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+    sudo apt update
+    sudo apt install wezterm
+    echo "Wezterm instalado."
+else
+    echo "Wezterm já está instalado."
+fi
+
+# instalar Zoxide
+if ! command -v zoxide &> /dev/null; then
+    echo "Instalando Zoxide..."
+    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+    echo "Zoxide instalado."
+else
+    echo "Zoxide já está instalado."
+fi
+
+# instalar Bat
+if ! command -v bat &> /dev/null; then
+    echo "Instalando Bat..."
+    sudo apt install -y bat
+    echo "Bat instalado."
+else
+    echo "Bat já está instalado."
+fi
+
+# instalar LazyDocker
+if ! command -v lazydocker &> /dev/null; then
+    echo "Instalando LazyDocker..."
+    curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+    echo "LazyDocker instalado."
+else
+    echo "LazyDocker já está instalado."
+fi
 
 # CONFIGURAÇÕES -------------------------------------------------------
 
@@ -170,18 +212,22 @@ fi
 cp .zshrc "$USER_HOME/.zshrc"
 echo ".zshrc copiado para $USER_HOME"
 
-# 2. Copiar o arquivo .config para a home
+# 2. Copiar o arquivo .wezterm.lua para a home
+cp .wezterm.lua "$USER_HOME/.wezterm.lua"
+echo ".wezterm.lua copiado para $USER_HOME"
+
+# 3. Copiar o arquivo .config para a home
 cp -r .config "$USER_HOME"
 echo "Pasta .config copiada para $USER_HOME"
 
-# 3. Copiar a pasta .zsh para a home
+# 4. Copiar a pasta .zsh para a home
 cp -r .zsh "$USER_HOME"
 echo "Pasta .zsh copiada para $USER_HOME"
 
-# 4. Criar a estrutura de plugins
+# 5. Criar a estrutura de plugins
 mkdir -p "$USER_HOME/.zsh/plugins"
 
-# 5. Clonar ou atualizar os repositórios
+# 6. Clonar ou atualizar os repositórios
 repos=(
   "https://github.com/z-shell/F-Sy-H.git $USER_HOME/.zsh/plugins/f-sy-h"
   "https://github.com/unixorn/fzf-zsh-plugin.git $USER_HOME/.zsh/plugins/fzf-zsh-plugin"

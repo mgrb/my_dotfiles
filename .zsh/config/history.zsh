@@ -1,4 +1,3 @@
-
 ### ---- History Configuration -----------------------------------
 HISTSIZE=10000000               #How many lines of history to keep in memory
 HISTFILE=$ZSH/.zsh_history     #Where to save history to disk
