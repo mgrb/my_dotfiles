@@ -9,6 +9,23 @@ alias edit='subl'                           # edit: Opens any file in sublime ed
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd: Makes new Dir and jumps inside
 alias tree='eza --tree --group-directories-first -l --icons --level=${1:-2}' # comando tree utilizando o eza com ícones
 alias bat="batcat --paging=never --theme="Dracula" --italic-text=always"           # bat: Show content of a file with syntax highlighting
+# -----------------------
+alias lt='exa -lahT --color=always --group-directories-first --icons --git-ignore --ignore-glob=".git|$(ignore)"'
+
+ignore() {
+  if [[ -f .gitignore ]]; then
+    local GIT_IGNORE='.gitignore'
+  else
+    local GIT_IGNORE="${HOME}/.gitignore_global"
+  fi
+
+  grep '\S' "${GIT_IGNORE}" 2>/dev/null |
+    tr -d '\r' |
+    grep -v '^#' |
+    sed 's/^\///;s/\/$//' |
+    paste -sd '|' -
+}
+# -----------------------
 
 alias git-config-global="echo 'Set git configurations for GLOBAL' && \
 git config --global user.name 'Marlos Ribeiro' && \
