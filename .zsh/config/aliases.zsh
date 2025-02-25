@@ -39,3 +39,6 @@ git config --global pull.ff only"
 alias git-config-github="echo 'Set git configurations for GitHub.com' && \
 git-config-global && \
 git config user.signingkey <get-key>"
+
+
+alias git-sync-branchs="git fetch --all --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -p git branch -D"
