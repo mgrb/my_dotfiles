@@ -41,4 +41,4 @@ git-config-global && \
 git config user.signingkey <get-key>"
 
 
-alias git-sync-branchs="git fetch --all --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -p git branch -D"
+alias git-prune="git fetch --all --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -p git branch -D"
